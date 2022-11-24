@@ -26,7 +26,7 @@ public class TicketManagerTest {
         manager.add(ticket5);
         manager.add(ticket6);
 
-        AirTicketData[] expected = {ticket6, ticket1, ticket3,ticket4};
+        AirTicketData[] expected = {ticket3, ticket1, ticket4,ticket6};
         AirTicketData[] actual = manager.findAll("DME", "OGZ", ticketComparator);
 
         Assertions.assertArrayEquals(expected, actual);

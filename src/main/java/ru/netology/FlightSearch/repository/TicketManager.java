@@ -23,9 +23,10 @@ public class TicketManager {
                 }
                 tmp[tmp.length - 1] = ticket;
                 result = tmp;
-                Arrays.sort(result, comparator);
+                //Arrays.sort(result, comparator); вынесено из цикла
             }
         }
+        Arrays.sort(result, comparator);
         return result;
     }
 
