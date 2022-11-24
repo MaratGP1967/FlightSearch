@@ -3,6 +3,7 @@ package ru.netology.FlightSearch.repository;
 import ru.netology.FlightSearch.domain.AirTicketData;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class TicketManager {
 
@@ -12,7 +13,7 @@ public class TicketManager {
         this.ticketList = ticketList;
     }
 
-    public AirTicketData[] findAll(String from, String to) {
+    public AirTicketData[] findAll(String from, String to, Comparator<AirTicketData> comparator) {
         AirTicketData[] result = new AirTicketData[0];
         for (AirTicketData ticket : ticketList.findAll()) {
             if (matches(ticket, from, to)) {
@@ -22,9 +23,10 @@ public class TicketManager {
                 }
                 tmp[tmp.length - 1] = ticket;
                 result = tmp;
-                Arrays.sort(result);
+                //Arrays.sort(result, comparator); вынесено из цикла
             }
         }
+        Arrays.sort(result, comparator);
         return result;
     }
 

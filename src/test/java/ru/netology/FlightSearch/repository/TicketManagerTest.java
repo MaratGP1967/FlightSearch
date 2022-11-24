@@ -8,6 +8,7 @@ public class TicketManagerTest {
 
     TicketRepository mass = new TicketRepository();
     TicketManager manager = new TicketManager(mass);
+    TicketByPriceAsComparator ticketComparator = new TicketByPriceAsComparator();
 
     AirTicketData ticket1 = new AirTicketData(1, 5000, "DME", "OGZ", 120);
     AirTicketData ticket2 = new AirTicketData(2, 2000, "DME", "LED", 180);
@@ -25,8 +26,8 @@ public class TicketManagerTest {
         manager.add(ticket5);
         manager.add(ticket6);
 
-        AirTicketData[] expected = {ticket6, ticket1, ticket3,ticket4};
-        AirTicketData[] actual = manager.findAll("DME", "OGZ");
+        AirTicketData[] expected = {ticket3, ticket1, ticket4,ticket6};
+        AirTicketData[] actual = manager.findAll("DME", "OGZ", ticketComparator);
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -41,7 +42,7 @@ public class TicketManagerTest {
         manager.add(ticket6);
 
         AirTicketData[] expected = {};
-        AirTicketData[] actual = manager.findAll("LED", "OGZ");
+        AirTicketData[] actual = manager.findAll("LED", "OGZ", ticketComparator);
 
         Assertions.assertArrayEquals(expected, actual);
     }

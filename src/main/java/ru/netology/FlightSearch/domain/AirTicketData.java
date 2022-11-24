@@ -1,6 +1,6 @@
 package ru.netology.FlightSearch.domain;
 
-public class AirTicketData implements Comparable<AirTicketData> {
+public class AirTicketData  { //implements Comparable<AirTicketData>
     //ID.
     //Стоимость, для упрощения будем считать стоимость единой для всех продавцов.
     //Аэропорт вылета, вы можете использовать IATA-коды.
@@ -60,14 +60,14 @@ public class AirTicketData implements Comparable<AirTicketData> {
         TravelTime = travelTime;
     }
 
-    @Override
-    public int compareTo(AirTicketData o) {
-        if (this.price < o.price) {
-            return -1;
-        } else if (this.price > o.price) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
+ //   @Override
+  //  public int compareTo(AirTicketData o) {
+   //    if (this.price < o.price) {
+    //        return -1;
+      //  } else if (this.price > o.price) {
+    //        return 1;
+   //     } else {
+   //         return 0;
+   //     }
+   // }
 }
